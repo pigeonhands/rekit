@@ -1,0 +1,17 @@
+[package]
+name = "rekit"
+version = "0.1.0"
+edition = "2024"
+description = "Reverse engineering primitives — byte pattern scanning, C++ demangling, and utilities"
+license = "MIT"
+
+[dependencies]
+bitflags = { version = "2", optional = true }
+cpp_demangle = { version = "0.4", optional = true }
+msvc-demangler = { version = "0.11", optional = true }
+
+[features]
+default = ["pattern", "demangle"]
+pattern = []
+demangle = ["dep:cpp_demangle", "dep:msvc-demangler"]
+flags = ["dep:bitflags"]
